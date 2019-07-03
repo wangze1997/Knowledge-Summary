@@ -36,25 +36,25 @@ dom.style 只能获取设置在行间样式的属性与方法,即可读也可写
 
 - 封装insertAfter()使其作用相似与insertBefore()
 
-  - 把某A元素插入到B元素后面只需把A元素插入到B元素下一个元素的前面。
+  把某A元素插入到B元素后面只需把A元素插入到B元素下一个元素的前面。
 
-    ```
-     `Element.prototype.insertAfter = function (ele,preElement){`
-    
-    ​       	 `var nextEle = preElement.nextElementSibling;`
-    
-    ​       	 `if(!nextEle){`
-    
-    ​             	 `preElement.parentElement.appendChild(ele);`
-    
-    ​            `}else{`
-    
-    ​	             `preElement.parentElement.insertBefore(ele,nextEle);`
-    
-    ​	         `}`
-    
-    ​       `}`
-    ```
+  ```
+   Element.prototype.insertAfter = function (ele,preElement){
+  
+  ​       	 var nextEle = preElement.nextElementSibling;
+  
+  ​       	 if(!nextEle){
+  
+  ​             	 preElement.parentElement.appendChild(ele);
+  
+  ​            }else{
+  
+  ​	             preElement.parentElement.insertBefore(ele,nextEle);
+  
+  ​	         }
+  
+  ​       }
+  ```
 
-    
+  
 
