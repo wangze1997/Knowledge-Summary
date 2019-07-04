@@ -57,3 +57,49 @@
 - 伪元素 标签 1
 - 通配符 0
 
+### 说你下你知道的伪类选择器
+
+- :link 选择未访问过的链接
+- :visited 选择已访问过的链接
+- :hover 选择鼠标移动上去
+- :active 选择活动链接
+- :first-child 选择第一个子元素
+- last-child 选择最后一个子元素
+- nth-child() 选择第n个子元素
+- first-of-type 选择与父元素类型相同的第一个子元素
+- last-of-type 选择与父类型相同的最后一个子元素
+- nth-of-type() 选择与父类型相同的第n个子元素
+- :root 选择根元素
+- :empty 选择空元素
+
+### CSS可以继承的元素有哪些
+
+**一般文本类、字体类以及颜色都可以继承**
+
+- color
+- visibility
+- line-height
+- font-weight
+- font-style
+- font-family
+- font-size
+- text-align
+- text-indent
+- text-shadow
+- word-spacing
+- letter-spacing
+- white-space
+
+### CSS3新特性
+
+- 边框圆角 border-radius
+- 径向渐变与线性渐变 linear-gradient
+- 盒子阴影与文字阴影 text-shadow box-shadow
+- 颜色透明度 color: rgba(255, 0, 0, 0.75);
+- 文字溢出 text-overflow:ellipsis
+- 边框效果 border-image
+- 媒体查询 
+- flex布局与网格布局
+- 动画 animation
+- 过渡 transition
+- 变换 transform
