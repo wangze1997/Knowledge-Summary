@@ -25,3 +25,8 @@
 - **行内元素** em i b strong span img  input button select textarae small big label
 - **块级元素** div p from table h1-h5 ul ol li di dd dt  
 - **语义化元素** header footer nav  section aside atricle summary details mark time
+
+### 行内元素与块级元素的区别
+
+- **行内元素** 不能通过css设置宽高，不独占一行，magin与padding只能设置左右不能设置上下
+- **块级元素** 可以通过css修饰宽高，独占一行
