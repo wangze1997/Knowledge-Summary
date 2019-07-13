@@ -40,21 +40,14 @@ dom.style 只能获取设置在行间样式的属性与方法,即可读也可写
 
   ```
    Element.prototype.insertAfter = function (ele,preElement){
-  
-  ​       	 var nextEle = preElement.nextElementSibling;
-  
-  ​       	 if(!nextEle){
-  
-  ​             	 preElement.parentElement.appendChild(ele);
-  
-  ​            }else{
-  
-  ​	             preElement.parentElement.insertBefore(ele,nextEle);
-  
-  ​	         }
-  
-  ​       }
+         	 var nextEle = preElement.nextElementSibling;
+        	 if(!nextEle){
+               	 preElement.parentElement.appendChild(ele);
+           }else{
+  	             preElement.parentElement.insertBefore(ele,nextEle);
+  	     }
+  }
   ```
-
+  
   
 
