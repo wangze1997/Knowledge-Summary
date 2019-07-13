@@ -2,7 +2,7 @@
 
 BFS
 
-```
+```javascript
  <div class="parent">
         <div class="child-1">
             <div class="child-1-1">
@@ -42,3 +42,4 @@ function iterTree(dom){
 ```
 
 遍历上述节点树。
+

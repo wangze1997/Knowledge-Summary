@@ -4,7 +4,7 @@
 - 通过这个对象调用原函数。
 - 最后用delete删除这个属性
 
-```
+```javascript
 Function.prototype.myCall = function(obj){
 	let arr = [...arguments].slice(1);
 	obj.fn = this;
@@ -14,7 +14,7 @@ Function.prototype.myCall = function(obj){
 }
 ```
 
-```
+```javascript
 Function.prototype.myBind = function(obj){
 	obj.fn = this;
 	if(arguments[1]){
@@ -32,7 +32,7 @@ Function.prototype.myBind = function(obj){
 - 实参可以被累计保存
 - 返回的函数可以被new，原型对象指向原函数的prototype对象
 
-```
+```javascript
  Function.prototype.myBind = function(obj){
         let arr1 = [...arguments].slice(1);
         let that = this;

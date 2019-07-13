@@ -6,7 +6,7 @@ new一个函数这个过程中都发生了什么。
 - 执行函数中的代码
 - 最后隐式的返回这个this对象(前提是没有引用返回)
 
-```
+```javascript
 function myNew(fn){
 	let arr = [...arguments].slice(1)
 	let obj = {};
@@ -21,7 +21,7 @@ function myNew(fn){
 
 顺便重写个instanceof
 
-```
+```javascript
 function instanc(obj,fn){
 	let proto = obj.__proto__,
 		prototype = fn.prototype;
