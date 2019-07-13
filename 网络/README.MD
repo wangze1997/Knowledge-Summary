@@ -22,7 +22,7 @@
 
 浏览器缓存是指浏览器请求一个页面时，将页面数据缓存到本地，当浏览器再次访问这个页面时，直接从本地缓存中拿取。可以减轻服务器的负担，加快客户端加载网页的时间。
 
-![img](C:\Users\Administrator\Desktop\img.png)
+![img](C:\Users\Administrator\Desktop\img.jpg)
 
 浏览器缓存主要分为强缓存还有协商缓存。
 
