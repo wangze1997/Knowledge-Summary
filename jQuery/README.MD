@@ -18,7 +18,7 @@ jquery的优势如下：
 
 css selector（css选择器）、dom元素（根据选取规则选的）、null 、undefinde 、function(){}
 
-如果第一个传id选择器，那他只会选择第一个dom。
+如果第一个传id选择器，那他只会选择第一个dom。还可以填jquery函数执行产生的对象。
 
 ### 2、 jQuery基础操作方法。
 
@@ -28,7 +28,7 @@ first() last() odd() even() eq() get() find() filter(function(index,ele){}) not(
 
 add() 集中操作，父子我可以一并选取  end() 回退操作
 
-next() nextAll() prve() prveAll()  silbings() slice() parent() parents() closest(最近父级) offsetParent() ;
+next() nextAll() prve() prveAll()  silbings() slice() parent() parents() closest(最近父级) offsetParent() children();
 
 - 取赋值相关的方法
 
@@ -40,7 +40,7 @@ addClass(function(){})  removeClass(fn) hasClass() val(function(index,oldValue){
 
 insertBefore()  before() insertAfter() after()都具有剪切操作，和原生一样，调用者与被调用者不同。
 
-append() appendTo()  prepend() prependTo() （$("<div></div>").appendTo($(""))）
+append() appendTo()  prepend() prependTo() appendTo
 
 remove() 事件也一并删除 detach() 事件还存在。 
 
@@ -70,11 +70,11 @@ animate内部原理 queue dequeue clearqueue。
 
 width() height()  innerWidth() innerHeight() outerWidth(false/true) outerHeight(false/true)
 
-offset() 仅考虑其到文档的距离，不管父级有没有定位。position(none)不能设置位置
+offset() 仅考虑其到文档的距离，不管父级有没有定位。position(none)不能设置位置。返回的都是数值。
 
 scrollTop(必须Number) scrollLeft() 
 
-- jquery工具方法
+### 3、jquery工具方法
 
 $.type() $.isFunction() $.isArray() $.isWindow() 判断数据类型 
 
@@ -91,3 +91,16 @@ $.map(arr,function(index,ele){}) 循环操作数组，返回返回值的数组
 $.parseJson()
 
 $.makeArray() 把一个类数组转换成真数组。
+
+jquery高级工具方法。
+
+- $.extend()
+
+扩展方法，$.extend(obj)，$.fn.extend(obj)
+
+浅克隆，$(target,origin1,origin2.....) 
+
+深克隆，$(true,target,origin1,origin2.....)
+
+- $.ajax({url：请求地址，type：类型，data：参数信息（前后端协定好的，就要什么字段的内容），success：处理的回调函数，erroy：请求失败的处理函数，complate：不管失败或成功都会触发，context：改变回调函数中的上下文，async：true/false决定是否异步，基本都是异步，timeout：在规定时间内没请求成功，就不请求了，datatype：”jsonp“})
+

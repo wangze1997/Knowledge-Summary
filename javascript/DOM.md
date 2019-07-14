@@ -34,20 +34,43 @@ dom.style 只能获取设置在行间样式的属性与方法,即可读也可写
 
 ##### 封装一些dom方法
 
-- 封装insertAfter()使其作用相似与insertBefore()
+- 封装insertAfter()使其作用相似与insertBefore()，把某A元素插入到B元素后面只需把A元素插入到B元素下一个元素的前面。
 
-  把某A元素插入到B元素后面只需把A元素插入到B元素下一个元素的前面。
+```javascript
+ Element.prototype.insertAfter = function (ele,preElement){
+       	 var nextEle = preElement.nextElementSibling;
+      	 if(!nextEle){
+             	 preElement.parentElement.appendChild(ele);
+         }else{
+	             preElement.parentElement.insertBefore(ele,nextEle);
+	     }
+}
+```
 
-  ```
-   Element.prototype.insertAfter = function (ele,preElement){
-         	 var nextEle = preElement.nextElementSibling;
-        	 if(!nextEle){
-               	 preElement.parentElement.appendChild(ele);
-           }else{
-  	             preElement.parentElement.insertBefore(ele,nextEle);
-  	     }
-  }
-  ```
-  
-  
+
+
+- 封装获取class类名的方法（不使用原生方法）
+
+```javascript
+function trimStr (dom){
+    var reg = /\s+/g
+    str = dom.className.replace(reg," ");
+    return str;
+}
+function getClassDom(strClass){
+    var doms = document.getElementsByTagName("*");
+    var domArr = [...doms];
+    var newArr = []
+    domArr.forEach(function(ele){
+        let str = trimStr(ele).trim();
+        let strArr = str.split(" ");
+        strArr.forEach(function(item){
+            if(item == strClass){
+                newArr.push(ele)
+            }
+        })
+    })
+    return newArr;
+}
+```
 
