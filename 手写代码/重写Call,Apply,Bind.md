@@ -15,7 +15,7 @@ Function.prototype.myCall = function(obj){
 ```
 
 ```javascript
-Function.prototype.myBind = function(obj){
+Function.prototype.myApply = function(obj){
 	obj.fn = this;
 	if(arguments[1]){
 		var ret = obj.fn(...arguments[1])

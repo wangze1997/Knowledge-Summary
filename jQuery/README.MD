@@ -40,11 +40,11 @@ addClass(function(){})  removeClass(fn) hasClass() val(function(index,oldValue){
 
 insertBefore()  before() insertAfter() after()都具有剪切操作，和原生一样，调用者与被调用者不同。
 
-append() appendTo()  prepend() prependTo() appendTo
+append() appendTo()  prepend() prependTo() 
 
 remove() 事件也一并删除 detach() 事件还存在。 
 
-wrap() wrapInner() clone() data() dataClone()
+wrap() wrapInner() clone() data() dataClone() data数据是记忆在原生dom身上的
 
 - 事件与动画
 
@@ -55,6 +55,8 @@ one(type，fn) 事件只执行一次，然后就自动解除。
 off(type，fn) 可不填，可只填第一个参数， 用jq绑定的事件必须用jq方法解除。怎么绑怎么解。
 
 trigger(type) 代替事件执行。也可以触发自定义事件。 
+
+$(window).scroll() 监听滑轮滚动事件。横向竖向都监听。
 
 hide(duration,easing,fn) show() toggle() 后两个参数几乎不用。
 
@@ -70,7 +72,7 @@ animate内部原理 queue dequeue clearqueue。
 
 width() height()  innerWidth() innerHeight() outerWidth(false/true) outerHeight(false/true)
 
-offset() 仅考虑其到文档的距离，不管父级有没有定位。position(none)不能设置位置。返回的都是数值。
+offset() 仅考虑其到文档的距离，不管父级有没有定位。dom元素身上的offsetLeft是相对于最近父级有定位的元素，position(none)不能设置位置。返回的都是数值。
 
 scrollTop(必须Number) scrollLeft() 
 
@@ -103,4 +105,5 @@ jquery高级工具方法。
 深克隆，$(true,target,origin1,origin2.....)
 
 - $.ajax({url：请求地址，type：类型，data：参数信息（前后端协定好的，就要什么字段的内容），success：处理的回调函数，erroy：请求失败的处理函数，complate：不管失败或成功都会触发，context：改变回调函数中的上下文，async：true/false决定是否异步，基本都是异步，timeout：在规定时间内没请求成功，就不请求了，datatype：”jsonp“})
-
+- $.Deferred() 返回一个对象，可定义一些代理。
+- $.Callbacks()
