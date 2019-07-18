@@ -38,9 +38,9 @@ addClass(function(){})  removeClass(fn) hasClass() val(function(index,oldValue){
 
 - dom元素的增删改查
 
-insertBefore()  before() insertAfter() after()都具有剪切操作，和原生一样，调用者与被调用者不同。
+insertBefore()  before() insertAfter() after()都具有剪切操作，和原生一样，调用者与被调用者不同。在本元素前后插入同级元素，注意和原生的区别。
 
-append() appendTo()  prepend() prependTo() 
+append() appendTo()  prepend() prependTo() 在本元素中插入子元素
 
 remove() 事件也一并删除 detach() 事件还存在。 
 
@@ -72,7 +72,7 @@ animate内部原理 queue dequeue clearqueue。
 
 width() height()  innerWidth() innerHeight() outerWidth(false/true) outerHeight(false/true)
 
-offset() 仅考虑其到文档的距离，不管父级有没有定位。dom元素身上的offsetLeft是相对于最近父级有定位的元素，position(none)不能设置位置。返回的都是数值。
+offset() 仅考虑其到文档的距离，不管父级有没有定位。他就是获取或设置元素在文档中的位置，即使元素没设置定位也没关系。position(none)不能设置位置。返回的都是数值。就是获取元素身上的left与top值。
 
 scrollTop(必须Number) scrollLeft() 
 
@@ -105,5 +105,15 @@ jquery高级工具方法。
 深克隆，$(true,target,origin1,origin2.....)
 
 - $.ajax({url：请求地址，type：类型，data：参数信息（前后端协定好的，就要什么字段的内容），success：处理的回调函数，erroy：请求失败的处理函数，complate：不管失败或成功都会触发，context：改变回调函数中的上下文，async：true/false决定是否异步，基本都是异步，timeout：在规定时间内没请求成功，就不请求了，datatype：”jsonp“})
-- $.Deferred() 返回一个对象，可定义一些代理。
-- $.Callbacks()
+- $.Deferred() 返回一个对象，可定义一些代理。注册函数，监控状态。 
+- $.Callbacks() 通过add注册多个函数，通过fire一并执行，Deferred内部原理就是用Callback
+
+
+
+## 注意问题
+
+jquery选出来的dom元素对象不会监控内部元素的变化，而原生通过document.getElementByClassName等选择出来的可以监控内部变化，如果删除了内部数组也发生变化。
+
+$(".wrapper").remove()返回的依然是之前的对象，dom元素数量没变化。不过拿着引用也没用，元素都从dom树上消失了。
+
+$(window).outerWidth()与$(window).outerHeight()可以获取文档的宽高。
