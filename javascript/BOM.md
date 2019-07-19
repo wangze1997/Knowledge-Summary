@@ -16,16 +16,18 @@ Location 包含了当前url的一些信息
 
 ##### window
 
-| 属性            | 属性的具体描述                           |
-| --------------- | ---------------------------------------- |
-| sccrenX sccrenY | 声明了浏览器左上角距离电脑屏幕的x，y坐标 |
-| parent          | 返回父窗体(iframe)                       |
-| top             | 返回最顶层的先辈窗口                     |
-| self            | 加了一个自己的引用，也就是window自身     |
-| name            | 设置或返回窗口的名称。                   |
-| alter()         | 弹出警告框                               |
-| propmt()        | 弹出输入框                               |
-| confirm()       | 弹出确认框                               |
+| 属性                     | 属性的具体描述                           |
+| ------------------------ | ---------------------------------------- |
+| innerWidth，innerHeight  | 文档的宽高                               |
+| pageXoffset，pageYoffset | 出现滚动条时的偏移量                     |
+| sccrenX sccrenY          | 声明了浏览器左上角距离电脑屏幕的x，y坐标 |
+| parent                   | 返回父窗体(iframe)                       |
+| top                      | 返回最顶层的先辈窗口                     |
+| self                     | 加了一个自己的引用，也就是window自身     |
+| name                     | 设置或返回窗口的名称。                   |
+| alter()                  | 弹出警告框                               |
+| propmt()                 | 弹出输入框                               |
+| confirm()                | 弹出确认框                               |
 
 ##### Navgator
 

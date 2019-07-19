@@ -117,3 +117,5 @@ jquery选出来的dom元素对象不会监控内部元素的变化，而原生�
 $(".wrapper").remove()返回的依然是之前的对象，dom元素数量没变化。不过拿着引用也没用，元素都从dom树上消失了。
 
 $(window).outerWidth()与$(window).outerHeight()可以获取文档的宽高。
+
+$().ready()与onlode事件的区别：在于时间，一个是dom树构建完成触发，一个是等页面所有资源加载完成时触发。onload事件只能绑定一个，而ready事件可以绑定多个。

@@ -7,25 +7,25 @@
 ```javascript
 <script>
 	function ajax(type,url,data,method){
-    	let xhr;
-    	if(window.XMLHttpRequest){
-           xhr = new XMLHttpRequest();
-        }else{
-           xhr = new ActiveXObject("Microsort.XMLHttp")
-        }
-    	if(/^get$/i.test("GET")){
-      	   xhr.open(type,url + ? + data,true)
-    	   xhr.send();
-        }else{
-           xhr.open(type,url,true)
-           xhr.setRequestHeader("content-type","application/x-www-form-urlencoded")
-    	   xhr.send(data);
-        }
-    	xhr.onreadystatechange = function(){
-            if(xhr.readystate == 4 && xhr.status == 200){
-               	method();
-			}
-        } 
+            let xhr;
+            if(window.XMLHttpRequest){
+               xhr = new XMLHttpRequest();
+            }else{
+               xhr = new ActiveXObject("Microsort.XMLHttp")
+            }
+            if(/^get$/i.test("GET")){
+               xhr.open(type,url + ? + data,true)
+               xhr.send();
+            }else{
+               xhr.open(type,url,true)
+               xhr.setRequestHeader("content-type","application/x-www-form-urlencoded")
+               xhr.send(data);
+            }
+            xhr.onreadystatechange = function(){
+                if(xhr.readystate == 4 && xhr.status == 200){
+                    method();
+                }
+            } 
 	}    
 	// onreadystate会执行3次
 	// post请求一般会在send中传入参数，还要设置请求头
