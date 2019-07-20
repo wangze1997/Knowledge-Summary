@@ -27,3 +27,4 @@ session是依赖于cookie的，因为他要用cookie存储sessionID值。
 - Cookie不安全，容易伪造，Session比较安全
 - Cookie每次HTTP请求都会带上，影响网络性能
 - Seesion存的数据多的话，会占用服务器较多的内存资源。
+
