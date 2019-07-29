@@ -24,9 +24,13 @@ parentElement()  parentNode()  children()  childNodes()  firstElementChild() fir
 
 ##### Element节点的一些属性与方法
 
+className classList id。
+
 innerHTML innerText  区别   赋值都一样,会清空元素内容再赋值。取值时innerText自取元素内文本内容,innerHTML会把子标签一并取出。
 
 Attributes() getAttribute() setAttribute() removeAttribute() hasAttibute() 他们都可以设置或获取非固有属性。
+
+nodeName nodeValue nodeType（1、2、3、8、9） 
 
 offsetLeft offsetTop offsetWidth offsetHeight offsetparent 这些属性只可读不可写,返回的是数值。
 
