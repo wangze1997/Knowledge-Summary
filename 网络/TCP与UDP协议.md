@@ -23,6 +23,6 @@
 
 #### 基于TCP的协议都有哪些
 
-- http https ssh telnet ftp smtp
+- HTTP HTTPS SSH Telnet FTP SMTP
 
 此外TCP协议还具有拥塞处理和流量控制，后者作用与接收方，保证接收方来的及接收数据，前者作用与网络，避免出现网络负载过大。 
