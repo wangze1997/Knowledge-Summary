@@ -11,7 +11,7 @@
             if(window.XMLHttpRequest){
                xhr = new XMLHttpRequest();
             }else{
-               xhr = new ActiveXObject("Microsort.XMLHttp")
+               xhr = new ActiveXObject("Microsoft.XMLHttp")
             }
             if(/^get$/i.test("GET")){
                xhr.open(type,url + ? + data,true)
@@ -22,13 +22,19 @@
                xhr.send(data);
             }
             xhr.onreadystatechange = function(){
-                if(xhr.readystate == 4 && xhr.status == 200){
-                    method();
+                if(xhr.readyState == 4){
+                   if(xhr.status == 200){
+                      	method();
+                   }else{
+                       // 失败处理函数
+                   }
                 }
             } 
 	}    
-	// onreadystate会执行3次
+	// onreadyState会执行3次
 	// post请求一般会在send中传入参数，还要设置请求头
+	// 如果设置不异步的话那么send方法一定要写在最后
+	// 只要和服务器建立连接state就会变化至4
 </script>
 ```
 
@@ -39,4 +45,8 @@
 - 2 代表请求已经被接受
 - 3 代表请求正在处理中
 - 4 代表请求完成等待响应
+
+### GET请求的缓存问题
+
+- 如果不设置响应头为`cache-control`为`no-cache`浏览器将会把响应缓存下来而且再也不无法重新提交请求。你也可以添加一个总是不同的 GET 参数，比如时间戳或者随机数 (详情见 [bypassing the cache](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache))。
 
