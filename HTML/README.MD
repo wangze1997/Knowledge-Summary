@@ -31,3 +31,57 @@
 - **行内元素** 不能通过css设置宽高，不独占一行，magin与padding只能设置左右不能设置上下
 - **块级元素** 可以通过css修饰宽高，独占一行
 
+### 渐进增强与优雅降级
+
+- 渐进增强：一开始针对于低浏览器版本构建页面，保证能完成基本功能。然后再根据高版本浏览器进行处理。
+- 优雅降级：一开始就构建完整的功能，然后在根据浏览器版本向后兼容实现。
+
+### 对mate标签viewprot的理解
+
+viewport的深度好文
+
+用于移动端适配，没有他的话就会以设备像素（物理像素）显示页面，这样一个300px的盒子在移动端会看着很小，有了它就会以设备像素比所计算的像素来显示页面。
+
+```HTML 
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no">
+```
+
+- width：设备宽度
+- device-width：设备宽度
+- minimum-scale：最小缩放比
+- maximun-scale：最大缩放比
+- user-scalable：是否允许用户缩放
+
+### localStorage，sessionStorage，cookie之间的区别
+
+| 特性         | localStorage           | sessionStorage   | cookie               |
+| ------------ | ---------------------- | ---------------- | -------------------- |
+| 与服务器通信 | 否                     | 否               | 是                   |
+| 数据存储周期 | 除非清理，否则一直存在 | 页面关闭就被清理 | 有服务器决定到期时间 |
+| 数据存储大小 | 5k                     | 5M               | 5M                   |
+
+### 描述一下主流浏览器及其内核
+
+| 浏览器          | 内核    |
+| --------------- | ------- |
+| 谷歌（chrome）  | Blink   |
+| 欧朋（opear）   | Blink   |
+| 苹果（safari）  | Webkit  |
+| 火狐（firefox） | Gecko   |
+| 微软（IE）      | Tredent |
+
+### HTML5的变化
+
+- 增加了很多新的语义化标签
+- 删除了一些纯样式标签
+- 增强了表单
+- 增加了许多新的API
+  - 定位（需要地理位置的功能）
+  - 重力感应（陀螺仪）
+  - canvas绘图功能
+  - LocalStorage和SessionStroage（本地存储）
+  - WebSocket（通信协议）
+  - request-animation-frame（动画优化）
+  - webWorker（文件的异步，提升性能，提升交互体验）
+  - Fetch（传说中要替代ajax的东西）
+  - 音视频（audio，video）
