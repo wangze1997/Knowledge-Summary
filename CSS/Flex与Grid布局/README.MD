@@ -36,7 +36,7 @@
 - gird-gap
 - justify-content
 - align-content
-- place-contemt
+- place-content
 - justify-items
 - align-items
 - place-items

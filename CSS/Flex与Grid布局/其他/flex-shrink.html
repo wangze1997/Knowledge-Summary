@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+        .flex{
+            display: flex;
+            width:800px;
+            height: 400px;
+            border:2px solid springgreen;
+        }
+        .content{
+            flex-grow: 1;
+            background: fuchsia;
+            height: 100px;
+            /* width:200px;
+            height: 200px;
+            border:1px solid saddlebrown; */
+        }
+        
+        .flex div:nth-of-type(2){
+            background: salmon;
+            /* width:100px;
+            background: fuchsia;
+            flex-basis: 200px; */
+        }
+    </style>
+</head>
+<body>
+    <!-- flex-basis可以覆盖width属性，但如果子元素宽度撑开的话，那么他的压缩值将会减少，让它的宽度等于子元素宽度，而这个临界值就是width宽度，而不是basis -->
+    <!-- 这可是一坑点啊 flex-basis开发中尽量别设置，宽度比原先大还可以，小会引起一系列问题-->
+    <div class="flex">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+</body>
+</html>
