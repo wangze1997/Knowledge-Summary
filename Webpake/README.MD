@@ -13,7 +13,7 @@
 
 ### package-lock.json
 
-锁定安装时包的版本号。这个package-lock.json 是在 `npm install`时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号。
+锁定安装时包的版本号。这个package-lock.json 是在 `npm install`时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号，还有依赖包。
 
 ### webpack.config.js
 
@@ -47,4 +47,5 @@ module.exports = {
 
 ### 本地服务器
 
-webpack可以安装本地服务器，用于调试。`webpack-dev-server`，先安装全局，在安装局部。可以完成实时刷新，因为他可以自动监听。
+webpack可以安装本地服务器，用于调试。`webpack-dev-server`，先安装全局，在安装局部。可以完成实时刷新，因为他可以自动监听。他会自动整合主目录下`index.html`与出口文件整合在一起，但必须有html模板输出，应该是把输出的文件提到主文件夹（？），打开本服务器的时候他会依赖配置文件。
+
