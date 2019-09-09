@@ -57,13 +57,13 @@ HTTP（Hyper Text Transfer Protocal）超文本传输协议，是基于 TCP/IP �
 - GET
   - 访问资源
 - POST
-  - 发送少量数据
+  - 向服务器发送数据
 - HEAD
-  - 获取报文首部
+  - 类似于GET，但是他不会把请求体发给服务器
 - DELETE
-  - 删除资源
+  - 请求服务器删除资源
 - PUT
-  - 更新资源
+  - 请求服务器更新资源
 
 ### GET与POST请求的区别
 
@@ -72,7 +72,7 @@ HTTP（Hyper Text Transfer Protocal）超文本传输协议，是基于 TCP/IP �
 - GET是用来获取数据的，POST是用来发送少量数据的
 - GET请求的参数在URL中可见，POST不可见
 - GET请求不安全，POST请求较安全
-- GET请求对于长度是有限制的，一般要求是2048个字符，POST请求无限制
+- GET请求对于长度是有限制的，一般要求是2048个字符，POST请求无限制（他的字段信息在请求体中）
 - GET请求的编码类型有要求，一般是ASCLL码，POST请求无限制，2进制数据也可以
 - GET请求可以被收藏为书签，POST请求不可以收藏为书签
 - GET请求的参数会保存到浏览器历史记录中，POST不会
@@ -82,18 +82,25 @@ HTTP（Hyper Text Transfer Protocal）超文本传输协议，是基于 TCP/IP �
 
 ### HTTP常见的一些字段名
 
-| 字段名           | 详细信息                                      |
-| ---------------- | --------------------------------------------- |
-| Content-Type     | 定义字符的编码格式                            |
-| Content-Length   | 声明本次回应的数据长度                        |
-| Content-Encoding | 定义数据的压缩格式                            |
-| Connection       | 定义持久连接                                  |
-| Uset-Agent       | 记录浏览器的相关信息                          |
-| Referer          | 记录上次浏览过的网站                          |
-| Set-Cookie       | 设置cookie信息                                |
-| HttpOnly         | 无法通过document.cookie设置字段信息           |
-| MaxAge           | 设置cookie到期时间                            |
-| Expires          | 决定缓存与cookie的到期时间                    |
-| Cache-Control    | 决定缓存到期时间，是相对时间，权重没expires高 |
-| If-None-Match    | 本地资源未修改返回304（比较标记）             |
-| Etag             | 资源标识                                      |
+| 字段名           | 详细信息                                            |
+| ---------------- | --------------------------------------------------- |
+| Accept           | 指定客户端可以接受的内容类型                        |
+| Accept-Charset   | 浏览器可以接受的字符编码集。                        |
+| Accept-Language  | 浏览器可接受的语言                                  |
+| Accept-Encoding  | 指定浏览器可以支持的web服务器返回内容压缩编码类型。 |
+| Content-Type     | 定义字符的编码格式                                  |
+| Content-Language | 相应的语言                                          |
+| Content-Length   | 声明本次回应的数据长度                              |
+| Content-Encoding | 定义数据的压缩格式                                  |
+| Connection       | 定义持久连接                                        |
+| Uset-Agent       | 记录浏览器的相关信息                                |
+| Referer          | 记录上次浏览过的网站                                |
+| Set-Cookie       | 设置cookie信息                                      |
+| Cookie           | 浏览器发送请求时会把cookie信息都带上                |
+| HttpOnly         | 无法通过document.cookie设置字段信息                 |
+| MaxAge           | 设置cookie到期时间                                  |
+| Expires          | 决定缓存与cookie的到期时间                          |
+| Cache-Control    | 决定缓存到期时间，是相对时间，权重没expires高       |
+| If-None-Match    | 本地资源未修改返回304（比较标记）                   |
+| Etag             | 资源标识                                            |
+

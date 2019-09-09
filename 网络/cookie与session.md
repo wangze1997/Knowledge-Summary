@@ -28,3 +28,10 @@ session是依赖于cookie的，因为他要用cookie存储sessionID值。
 - Cookie每次HTTP请求都会带上，影响网络性能
 - Seesion存的数据多的话，会占用服务器较多的内存资源。
 
+### cookie操作
+
+通过document.cookie可以获取同域名下的所有cookie信息。设置的话就是document.cookie等于一个字符串，字符串中包含属性值和属性名。删除的话可以直接从浏览器设置中删除。修改的话就是直接覆盖之前的字段信息。
+
+[cookie操作](https://www.runoob.com/js/js-cookies.html)
+
+### Token

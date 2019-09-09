@@ -5,36 +5,37 @@
 ### 手写一个ajax
 
 ```javascript
+promise封装ajax兼容性写法
 <script>
-	function ajax(type,url,data,method){
-            let xhr;
-            if(window.XMLHttpRequest){
-               xhr = new XMLHttpRequest();
-            }else{
-               xhr = new ActiveXObject("Microsoft.XMLHttp")
-            }
-            if(/^get$/i.test("GET")){
-               xhr.open(type,url + ? + data,true)
-               xhr.send();
-            }else{
-               xhr.open(type,url,true)
-               xhr.setRequestHeader("content-type","application/x-www-form-urlencoded")
-               xhr.send(data);
-            }
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState == 4){
-                   if(xhr.status == 200){
-                      	method();
-                   }else{
-                       // 失败处理函数
-                   }
+	const getJSON = function (url,type,param) {
+            return new Promise((resolve,reject) => {
+                let xhr;
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();
+                }else{
+                    xhr = new ActiveXObject("MircoSort.XMLHttp")
+                }   
+                if(type == "get"){
+                    xhr.open(type,url + "?" + param,true);
+                    xhr.send();
+                }else{
+                    xhr.open(type,url,true)
+                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded") //你可以不写。
+                    xhr.send(param);
                 }
-            } 
-	}    
-	// onreadyState会执行3次
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4){
+                        if(xhr.status == 200){
+                            resolve(xhr.response);
+                        }else{
+                            reject(new Error("error"));
+                        }
+                    }
+                }   
+            })
+        }
 	// post请求一般会在send中传入参数，还要设置请求头
 	// 如果设置不异步的话那么send方法一定要写在最后
-	// 只要和服务器建立连接state就会变化至4
 </script>
 ```
 
@@ -45,6 +46,8 @@
 - 2 代表请求已经被接受
 - 3 代表请求正在处理中
 - 4 代表请求完成等待响应
+
+只要和服务器建立连接，onreadystatechange事件就会执行4次， 分别是： 0-1、1-2、2-3、3-4，对应着 readyState 的每个变化。（如果发生跨域错误的话，浏览器会返回值为4的状态码）
 
 ### GET请求的缓存问题
 
