@@ -25,17 +25,27 @@ mvvm（ Model-View-ViewModel）mvvm和mvp几乎一样，只是将persenter层改
 
 ### vue双向数据绑定的原理
 
+vue双向数据绑定是表单元素与vue中的数据进行的绑定，当一方发生变化的时候另一方也会发生变化。vue内部是通过defineProperty拦截data中相关数据的读和写的操作。当视图发生变化时，数据发生变化，数据发生变化时，视图变化。
+
+[双向数据绑定](https://www.cnblogs.com/wangjiachen666/p/9883916.html)
+
 ### vue生命周期
 
-vue生命周期可分为8个阶段，对应8个钩子函数。 
+vue生命周期可分为8个阶段，对应8个钩子函数。 就是其在创建、挂载、更新、销毁期间发生的事情。
 
 - 创建前后
-  - beforeCreate 
-  - created
+  - beforeCreate  实例刚从内存中创建出来，还没有初始化data和method属性。
+  - created  数据data和method属性已经被初始化，此时还没有编译模板。
 - 挂载前后
+  - beforeMount  模板已经编译好，但是还没有挂载到页面。
+  - mounted  此时已经把模板挂载到页面上了。
 - 数据更新前后
+  - beforeUpdate 状态更新之前执行此函数，此时data中的数据是最新的，页面还是老数据，因为还没有重新渲染。
+  - updated 状态更新之后执行此函数，此时节点已经被重新渲染。
 - 销毁前后
+  - beforeDestroy 实例销毁前调用，此时实例依然可以使用。
+  - destroy 实例销毁后调用，此时vue实例与他的子实例不能再使用，所有dom的监听事件已经解绑。
 
-### 组件之间的通信
+### 组件之间通信的方式
 
 组件是vue中最为强大的功能之一，而组件中的作用域是相互独立的，要想组件之间可以通信就必须借助一些方法。
