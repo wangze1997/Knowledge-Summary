@@ -55,8 +55,6 @@ offsetLeft 元素的左外边框至最近定位元素（offsetParent）的左内
 }
 ```
 
-
-
 - 封装获取class类名的方法（不使用原生方法）
 
 ```javascript
@@ -82,3 +80,18 @@ function getClassDom(strClass){
 }
 ```
 
+### 节点继承关系
+
+![](https://img-blog.csdn.net/20180801162810883?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dhb3NoYW55YW5nemhpXzE5OTk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+dom元素对象与document对象之间就是典型的原型链继承。
+
+document对象由HTMLDocument函数构造产生，HTMLDocument的prototype中的proto又指向Document函数的原型。
+
+#### 典型说明原型链的关系的就是dom了
+
+不同元素由不同的构造函数产生，比如过div元素由HTMLDIVElement函数构造产生，ul由HTMLULElement函数构造产生。而所有dom元素构造函数的prototype中的proto对象又指向HTMLElement的prototype，HTMLElement函数的prototype中的proto又指向Element函数的prototype。Element函数的prototype的proto又指向Node的prototype。所以说每个dom元素的终端就是Element的prototype中的proto
+
+总结来说：dom元素的每一层proto都对应某个函数的prototype，所以不论在那个函数的prototype上添加属性都可以直接受益到dom元素身上。
+
+所有dom元素的第二层proto都是指向一个空间的
