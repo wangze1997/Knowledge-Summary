@@ -28,7 +28,7 @@ first() last() odd() even() eq() get() find() filter(function(index,ele){}) not(
 
 add() 集中操作，父子我可以一并选取  end() 回退操作
 
-next() nextAll() prve() prveAll()  silbings() slice() parent() parents() closest(最近父级) offsetParent() children();
+next() nextAll() prve() prveAll()  silbings() slice() parent() parents() children() closest(最近父级) offsetParent() ;
 
 - 取赋值相关的方法
 
@@ -48,7 +48,7 @@ wrap() wrapInner() clone() data() dataClone() data数据是记忆在原生dom身
 
 - 事件与动画
 
-on(type，selector，data，fn) 第一个与第四个是必填，第2个参数优化了事件委托。
+on(type，selector，data，fn) 第一个与第四个是必填，第2个参数优化了事件委托。限制必须由那个子元素触发。
 
 one(type，fn) 事件只执行一次，然后就自动解除。
 
@@ -119,3 +119,11 @@ $(".wrapper").remove()返回的依然是之前的对象，dom元素数量没变�
 $(window).outerWidth()与$(window).outerHeight()可以获取文档的宽高。
 
 $().ready()与onlode事件的区别：在于时间，一个是dom树构建完成触发，一个是等页面所有资源加载完成时触发。onload事件只能绑定一个，而ready事件可以绑定多个。
+
+jquery2大等式（通过$函数执行所产生的jquery对象引用不同，但他们的原型引用地址都是相同的）
+
+```javascript
+window.$ = window.jQuery = jQuery
+jQuery.prototype == jQuery.fn == jQuery.fn.init.prototype
+```
+
