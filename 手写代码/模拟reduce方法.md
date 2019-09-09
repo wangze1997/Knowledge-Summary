@@ -3,6 +3,7 @@
 ### 可模拟实现reduce、filter、map、forEach、some、every、find、findIndex、indexOf、lastIndexOf
 
 - 模拟实现redece方法
+- 如果你不传默认值他会以数组的第一个值当做默认值。
 
 ```javascript
 Array.prototype.myReduce  = function (fn,num){
