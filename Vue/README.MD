@@ -2,7 +2,7 @@
 
 ### vue指令都有哪些？
 
-v-pre 、v-cloak、v-once、v-html、v-text、v-if、v-else-if、v-else、v-show、v-on、v-bind、v-for、v-model
+v-pre 、v-cloak、v-once、v-html、v-text、v-if、v-else-if、v-else、v-show、v-on、v-bind、v-for、v-model、v-slot
 
 ### v-model的使用
 
@@ -12,8 +12,8 @@ v-modle是用来实现双向数据绑定的，只能用在表单中，适用于�
 
 [vue修饰符-很全面](https://segmentfault.com/a/1190000016786254)
 
-- 表单修饰符 .trim  .number
-- 事件修饰符 .stop .prevent .self .once
+- 表单修饰符 .trim  .number .lazy
+- 事件修饰符 .stop .prevent .self .once .native
 
 ### mvc、mvp与mvvm
 
@@ -49,3 +49,30 @@ vue生命周期可分为8个阶段，对应8个钩子函数。 就是其在创�
 ### 组件之间通信的方式
 
 组件是vue中最为强大的功能之一，而组件中的作用域是相互独立的，要想组件之间可以通信就必须借助一些方法。
+
+父组件向子组件传递数据的方式。
+
+- 父组件向子组件传递数据，子组件可以通过props来接受。
+
+- 祖父组件向孙组件传递数据，可以通过$attrs。
+
+- 子组件可以通过$parent拿父组件的数据。
+
+- 父组件可以通过定义provide数据，子组件通过inject接收父组件provide中的数据。
+
+子组件向父组件传递数据的方式。
+
+- 父组件可以通过$childern拿子组件的数据。（不建议用）
+- 父组件可以通过$refs拿子组件的数据，只需要在子组件身上定义ref属性。
+
+- 通过$listeners可以监听父组件传递过来的事件函数。
+- 通过$emit可以主动触发一种事件类型的函数。可以在emit函数的参数中向父组件事件函数传参。
+
+### 计算属性与监听属性watch
+
+计算属性可以自动监听数据的变化，并可写成一个对象的形式，里面包含get和set函数。
+
+计算属性和普通方法的主要区别：计算属性可以做缓存，如果相关数据没有改变的话，他只执行一次，多次访问访问计算属性，那么他就会取缓存。methods只要数据发生变化，那么函数就会执行。
+
+计算属性和监听器他们的侧重点不同，计算属性监听的是依赖值，只要依赖值不变，那他只会取缓存。监听器监听的是属性值，只要属性值发生变化，那么相关函数就会执行。
+
