@@ -24,11 +24,11 @@ css selector（css选择器）、dom元素（根据选取规则选的）、null 
 
 - 选取dom相关的方法
 
-first() last() odd() even() eq() get() find() filter(function(index,ele){}) not(function(){}) has() is()
+first() last() eq() get() find() filter(function(index,ele){}) not(function(){}) has()
 
 add() 集中操作，父子我可以一并选取  end() 回退操作
 
-next() nextAll() prve() prveAll()  silbings() slice() parent() parents() children() closest(最近父级) offsetParent() ;
+next() nextAll() prve() prveAll()  silbings() slice() parent() parents() children() ;
 
 - 取赋值相关的方法
 
@@ -44,7 +44,7 @@ append() appendTo()  prepend() prependTo() 在本元素中插入子元素
 
 remove() 事件也一并删除 detach() 事件还存在。 
 
-wrap() wrapInner() clone() data() dataClone() data数据是记忆在原生dom身上的
+wrap() wrapInner() clone() data() data数据是记忆在原生dom身上的
 
 - 事件与动画
 
@@ -66,7 +66,7 @@ sildeDowm(duration,easing,fn) sildeUp() sildeToggle()
 
 animate(target,duration,easing,fn)
 
-animate内部原理 queue dequeue clearqueue。
+animate内部原理 queue dequeue clearqueue。如果一个dom元素有多个动画的话他会依次执行。
 
 - 图形大小与位置坐标
 
