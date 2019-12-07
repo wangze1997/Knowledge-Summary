@@ -70,6 +70,7 @@ IFC（行内格式化上下文） 与BFC相比他的创建方式是被动的、�
 - text-align
 - text-indent
 - text-shadow
+- text-overflow
 - word-spacing
 - letter-spacing
 - white-space
